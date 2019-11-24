@@ -1,0 +1,125 @@
+{% extends 'main/base_posts.html' %}
+
+{% block blog_posts %}
+
+    <br/>
+
+    {% if posts_list %}
+        {% for post in posts_list %}
+
+            <div class="card mb-4">
+                <img class="card-img-top" style="max-height:300px" src="/media/{{ post.category.image }}" alt="">
+                <div class="card-body">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text">{{ post.summary }}</p>
+                    <a href="/posts/{{ post.id}}?page={{page_obj.number}}" class="btn btn-primary">Read More &rarr;</a>
+                </div>
+                <div class="card-footer text-muted">
+                    {% if post.last_modification_date|date:"Y-m-d" > post.publication_date|date:"Y-m-d" %}
+                        Updated on {{ post.last_modification_date|date:'F j, Y' }} by 
+                        {% if post.author.full_name %}
+                            {{ post.author.full_name }}
+                        {% else %}
+                            {{ post.author.username }}
+                        {% endif %}
+                        <br/>
+                    {% endif %}
+
+                    Posted on {{ post.publication_date|date:'F j, Y' }} by 
+                    {% if post.author.full_name %}
+                        {{ post.author.full_name }}
+                    {% else %}
+                        {{ post.author.username }}
+                    {% endif %}
+                    <br/>                    
+                </div>
+            </div>
+      
+        {% endfor %}
+
+        <div class="pagination justify-content-center mb-4">
+            <span class="page-links">
+                <span class="page-current">
+                    Page 1 of 1
+                </span>
+            </span>
+        </div>
+
+        <ul class="pagination justify-content-center mb-4">
+            <li class="page-item">
+                <a class="page-link" href="">&larr; Newer</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="">Older &rarr;</a>
+            </li>
+        </ul>                
+
+    {% endif %}
+
+{% endblock blog_posts %}
+
+{% block search_widget %}
+
+    <!-- Search Widget -->
+    <!--
+    <div class="card my-4">
+        <h5 class="card-header">Search</h5>
+        <div class="card-body">
+            <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button">Go!</button>
+            </span>
+            </div>
+        </div>
+    </div>
+    -->
+
+{% endblock search_widget %}  
+
+{% block categories_widget %}
+
+
+    <div class="card my-4">
+        <h5 class="card-header">All Categories</h5>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">Spring Boot</a>
+                    </li>
+                    <li>
+                      <a href="#">Angular</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">Django</a>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock categories_widget %}    
+
+
+{% block side_widget %}
+
+    <!-- Side Widget -->
+    <!--
+    <div class="card my-4">
+        <h5 class="card-header">Simple Blog</h5>
+        <div class="card-body">
+            All those snippets of code you always use but you always forget!
+        </div>
+    </div>
+    -->
+
+{% endblock side_widget %} 
+
+

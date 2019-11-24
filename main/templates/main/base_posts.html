@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Simple Blog</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'main/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'main/css/blog-home.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  {% include "main/header.html" %}
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+
+            <!--
+            <h1 class="my-4">Page Heading
+            <small>Secondary Text</small>
+            </h1>-->
+
+            {% block blog_posts %}
+            
+            {% endblock blog_posts %}
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+            {% block search_widget %}
+        
+            {% endblock search_widget %}   
+
+            {% block categories_widget %}
+        
+            {% endblock categories_widget %}        
+
+            {% block side_widget %}
+        
+            {% endblock side_widget %}  
+        </div>
+    </div>
+  </div>
+  <!-- /.container -->
+
+  {% include "main/footer.html" %}
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'main/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'main/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  
+</body>
+</html>
