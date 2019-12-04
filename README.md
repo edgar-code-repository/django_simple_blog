@@ -9,7 +9,6 @@ La aplicación se conecta a una base de datos PostgreSQL utilizando las libreria
 
 Se definen 3 models (Technology, Category y Post):
 
-
 ```
 
 class Technology(models.Model):
@@ -38,7 +37,7 @@ class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title = models.CharField(max_length=150)
-    summary = models.CharField(max_length=250)
+    summary = models.TextField()
     content = models.TextField()
     publication_date = models.DateTimeField(auto_now=False, auto_now_add=True)
     last_modification_date = models.DateTimeField(auto_now=True, auto_now_add=False)
@@ -63,18 +62,5 @@ admin.site.register(Category, CategoryModelAdmin)
 admin.site.register(Post, PostModelAdmin)
 
 ```
-
----------------------------------------------------------------------------------------------------------------------
-
-**Creación de un Post desde la aplicación admin:**
-
-![Screenshot AdminsPostCreate](screenshots/blog_add_post.png)
-
----------------------------------------------------------------------------------------------------------------------
-
-**Despliegue de posts en página principal:**
-
-![Screenshot BlogMainPage](screenshots/blog_main.png)
-
 
 ---------------------------------------------------------------------------------------------------------------------
