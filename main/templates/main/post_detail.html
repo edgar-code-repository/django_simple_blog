@@ -1,0 +1,55 @@
+{% extends 'main/base_detail.html' %}
+
+{% block post_detail %}
+
+    <br/>
+
+    {% if post %}
+
+        <div class="card mb-4">
+            <img class="card-img-top" src="/media/{{post.image}}" alt="">
+            <div class="card-body">
+                <h3 class="card-title">{{ post.title }}</h3><br/>
+                <div class="card-text content-markdown">{{ post.content }}</div>
+                <br/>
+                <a href="/posts?page={{page}}" class="btn btn-primary">&larr; Back to Home</a>
+            </div>
+            <div class="card-footer text-muted">
+                Updated on {{ post.last_modification_date|date:'F j, Y' }} by 
+                {% if post.author.full_name %}
+                    {{ post.author.full_name }}
+                {% else %}
+                    {{ post.author.username }}
+                {% endif %}
+                <br/>
+                Posted on {{ post.publication_date|date:'F j, Y' }} by 
+                {% if post.author.full_name %}
+                    {{ post.author.full_name }}
+                {% else %}
+                    {{ post.author.username }}
+                {% endif %}                
+            </div>
+        </div>
+
+    {% endif %}
+
+
+{% endblock post_detail %}
+
+{% block custom_scripts %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.7.0/marked.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $(".content-markdown").each(function() {
+            var content = $(this).text();
+            var markedContent = marked(content);
+            console.log("content: " + content);
+            console.log("marked content: " + markedContent);
+            $(this).html(markedContent);
+        });
+    })
+</script>
+
+{% endblock custom_scripts %}  

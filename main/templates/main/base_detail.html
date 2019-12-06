@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Simple Blog</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'main/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'main/css/blog-home.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  {% include "main/header.html" %}
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+        <!-- Post Details  -->
+        <div class="col-md-12">
+            <!--
+            <h1 class="my-4">Page Heading
+            <small>Secondary Text</small>
+            </h1>-->
+
+            {% block post_detail %}
+            
+            {% endblock post_detail %}
+        </div>
+    </div>
+  </div>
+  <!-- /.container -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'main/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'main/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  {% block custom_scripts %}
+    
+  
+  {% endblock custom_scripts %}  
+
+  
+</body>
+</html>
