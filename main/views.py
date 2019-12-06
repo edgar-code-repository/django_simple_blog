@@ -1,7 +1,7 @@
 from django.core.paginator import Paginator
 from django.views.generic import ListView, DetailView
 
-from .models import Post
+from .models import Post, Category
 
 
 class PostList(ListView):
@@ -25,6 +25,14 @@ class PostList(ListView):
         paginator_page = paginator.page(int(page))
 
         print("[PostList][paginator_page: " + str(paginator_page.object_list) + "]")
+
+        for post in paginator_page.object_list:
+            category = Category.objects.get(pk=post.category.id)
+
+            if category not in categories_list:
+                categories_list.append(category)
+        
+        context['categories_list'] = categories_list
 
         return context
 
