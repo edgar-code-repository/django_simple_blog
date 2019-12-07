@@ -64,3 +64,15 @@ admin.site.register(Post, PostModelAdmin)
 ```
 
 ---------------------------------------------------------------------------------------------------------------------
+
+Con la configuración realizada es posible administrar posts en la página admin:
+
+![Screenshot AdminPosts](screenshots/django_blog_admin.png)
+
+---------------------------------------------------------------------------------------------------------------------
+
+Página principal del blog:
+
+![Screenshot Main](screenshots/django_blog_main_page.png)
+
+---------------------------------------------------------------------------------------------------------------------
