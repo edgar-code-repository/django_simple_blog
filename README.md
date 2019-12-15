@@ -71,7 +71,7 @@ Con la configuración realizada es posible administrar posts en la página admin
 
 ---------------------------------------------------------------------------------------------------------------------
 
-Página principal del blog:
+Página publica del blog, en la cual se despliegan los posts paginados y las categorías a las que pertenecen los posts:
 
 ![Screenshot Main](screenshots/django_blog_main_page.png)
 
